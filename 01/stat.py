@@ -10,6 +10,11 @@ def centuryFromYear(year):
     return str(int(year) // 100 + 1) + "th century"
 
 
+def printCounter(counter):
+    for key, value in counter.most_common():
+        print(key + ": " + str(value))
+
+
 for line in open(sys.argv[1], "r"):
     if line not in ['\n', '\r\n']:
         data = line.split(":")
@@ -26,11 +31,10 @@ for line in open(sys.argv[1], "r"):
                 century = re.sub('[^0-9]', '', data[1])
                 cntYears[century + "th century"] += 1
 
+# print
 if sys.argv[2] == 'composer':
-    for key, value in cntComposers.most_common():
-        print(key + ": " + str(value))
+    printCounter(cntComposers)
 elif sys.argv[2] == 'year':
-    for key, value in cntYears.most_common():
-        print(str(key) + ": " + str(value))
+    printCounter(cntYears)
 else:
     raise Exception("What do you want?")
