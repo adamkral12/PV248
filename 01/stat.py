@@ -5,7 +5,6 @@ from collections import Counter
 cntComposers = Counter()
 cntYears = Counter()
 
-
 def centuryFromYear(year):
     return str(int(year) // 100 + 1) + "th century"
 
@@ -27,14 +26,14 @@ for line in open(sys.argv[1], "r"):
             match = regexp.match(data[1])
             if match:
                 cntYears[centuryFromYear(match.group(2))] += 1
-            elif re.match(r"(.*)century(.*)", data[1]):  # case 17th century
+            elif re.match(r"(.*)century(.*)", data[1]):  # case format: XXth century
                 century = re.sub('[^0-9]', '', data[1])
                 cntYears[century + "th century"] += 1
 
 # print
 if sys.argv[2] == 'composer':
     printCounter(cntComposers)
-elif sys.argv[2] == 'year':
+elif sys.argv[2] == 'century':
     printCounter(cntYears)
 else:
     raise Exception("What do you want?")
