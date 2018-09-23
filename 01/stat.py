@@ -19,7 +19,8 @@ for line in open(sys.argv[1], "r"):
         data = line.split(":")
         if data[0] == "Composer":
             if data[1].rstrip():
-                cntComposers[data[1].rstrip()] += 1
+                for composer in data[1].rstrip().split(";"):
+                    cntComposers[re.sub(r'\([^)]*\)', '', composer).rstrip()] += 1
         elif data[0] == "Composition Year":
             # find 4 digits next to each other, extract
             regexp = re.compile('(.*)(\d\d\d\d)(.*)')
