@@ -13,6 +13,7 @@ def load(filename):
         else:
             prints.append(processBlock(tempData))
             tempData = {}
+    prints.append(processBlock(tempData))
     return prints
 
 
@@ -20,6 +21,33 @@ def processCompositionYear(data):
     regexp = re.compile('(.*)(\d\d\d\d)(.*)')
     match = regexp.match(data)
     return match.group(1) if match else None
+
+
+def processPerson(data):
+    if data:
+        insideBrackets = re.search(r'(.*)\((.*?)\)', data)
+        if insideBrackets:
+            name = insideBrackets.group(1)
+            years = insideBrackets.group(2)
+            yearsSplit = re.search(r'(\d\d\d\d)(-|--)(\d\d\d\d)', years)
+            if yearsSplit:
+                return Person(name, yearsSplit.group(1), yearsSplit.group(3))
+            else:
+                yearBorn = re.search(r'(\d\d\d\d)(-|--)(.*)', years)
+                if yearBorn:
+                    return Person(name, yearBorn.group(1), None)
+                else: # find * and +
+                    yearBorn = None
+                    yearDied = None
+                    yearDiedReg = re.search(r'(\+)(\d\d\d\d)', years)
+                    if yearDiedReg:
+                        yearDied = yearDiedReg.group(2)
+                    yearBornReg = re.search(r'(\*)(\d\d\d\d)', years)
+                    if yearBornReg:
+                        yearBorn = yearBornReg.group(2)
+                    return Person(name, yearBorn, yearDied)
+        else:
+            return Person(data, None, None)
 
 
 def processBlock(data):
@@ -30,9 +58,12 @@ def processBlock(data):
         if re.match(r"(.*)Voice(.*)", key):
             voices.append(processVoice(val))
     if "Editor" in data:
-        editors.append(Person(data["Editor"], None, None))  # TODO: born/died
+        if processPerson(data["Editor"]):
+            editors.append(processPerson(data["Editor"]))
     if "Composer" in data:
-        composers.append(Person(data["Composer"], None, None))  # TODO: born/died
+        for composer in data["Composer"].split(";"):
+            if processPerson(composer):
+                composers.append(processPerson(composer))
     composition = Composition(
         data["Title"] if "Title" in data else None,
         data["Incipit"] if "Incipit" in data else None,
@@ -57,9 +88,9 @@ def processBlock(data):
 
 
 def processVoice(voiceData):
-    voiceRange = re.match(r"(.*)--(.*),", voiceData)
+    voiceRange = re.match(r"(.*)--([^,;]*)[,;](.*)", voiceData)
     if voiceRange:
-        return Voice(voiceData, voiceRange.group(1) + "--" + voiceRange.group(2))
+        return Voice(voiceRange.group(3).strip(), voiceRange.group(1) + "--" + voiceRange.group(2))
     else:
         return Voice(voiceData, None)
 
@@ -67,5 +98,5 @@ def processVoice(voiceData):
 printclasses = load(sys.argv[1])
 
 for printclass in printclasses:
-    pass
     printclass.format()
+    print("")

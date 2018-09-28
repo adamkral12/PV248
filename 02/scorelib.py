@@ -10,6 +10,7 @@ class Print:
         print(self.edition.format())
         if self.partiture:
             print("Partiture: " + self.partiture)
+
     def composition(self):
         return self.edition.composition
 
@@ -23,8 +24,9 @@ class Edition:
     def format(self):
         string = self.composition.format()
         if self.authors:
-            for author in self.authors:
-                string += "Editor: " + author.format() + "\n"
+            string += "\n"
+        for author in self.authors:
+            string += "Editor: " + author.format()
         if self.name:
             string += "Edition: " + self.name + "\n"
 
@@ -56,7 +58,7 @@ class Composition:
         for voice in self.voices:
             string += voice.format()
         for author in self.authors:
-            string += author.format()
+            string += "Composer: " + author.format()
         return string
 
 
@@ -68,10 +70,12 @@ class Voice:
     def format(self):
         string = ""
         if self.name:
-            string += "Voice: " + self.name + '\n'
+            string += "Voice: " + self.name
         if self.range:
-            string += "Range: " + self.range + '\n'
+            string += ", Range: " + self.range
 
+        if self.name or self.range:
+            string += "\n"
         return string
 
 
@@ -86,13 +90,11 @@ class Person:
         if self.name:
             string += self.name
         if self.born or self.died:
-            lifeString = " - "
+            lifeString = "--"
             if self.born:
                 lifeString = self.born + lifeString
             if self.died:
                 lifeString += self.died
-            string += lifeString + "\n"
-        else:
-            string += '\n'
+            string += lifeString
 
         return string
