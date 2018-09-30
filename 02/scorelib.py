@@ -18,7 +18,7 @@ class Voice:
         return string
 
     @staticmethod
-    def fromData(data):
+    def fromData(data) -> 'Voice':
         voiceRange = re.match(r"(.*)--([^,;]*)[,;](.*)", data)
         if voiceRange:
             return Voice(voiceRange.group(3).strip(), voiceRange.group(1) + "--" + voiceRange.group(2))
@@ -47,7 +47,7 @@ class Person:
 
 
     @staticmethod
-    def fromData(data):
+    def fromData(data) -> 'Person' or None:
         if data:
             insideBrackets = re.search(r'(.*)\((.*?)\)', data)
             if insideBrackets:
@@ -113,7 +113,7 @@ class Composition:
 
 
     @staticmethod
-    def fromData(data):
+    def fromData(data) -> 'Composition':
         voices = []
         for key, val in data.items():
             if re.match(r"(.*)Voice(.*)", key):
@@ -167,7 +167,7 @@ class Edition:
 
 
     @staticmethod
-    def fromData(data, composition):
+    def fromData(data, composition: Composition) -> 'Edition':
         editors = []
         if "Editor" in data:
             splitEditors = data["Editor"].split(",")
@@ -198,7 +198,7 @@ class Print:
         return self.edition.composition
 
     @staticmethod
-    def fromData(data):
+    def fromData(data) -> 'Print':
         if "Partiture" in data:
             if re.search("yes", data["Partiture"].lower()):
                 partiture = True
