@@ -104,7 +104,7 @@ class Composition:
         if self.genre:
             string += "Genre: " + self.genre + '\n'
         if self.year:
-            string += "Composition Year: " + self.year + '\n'
+            string += "Composition Year: " + str(self.year) + '\n'
         for voice in self.voices:
             string += voice.format()
         for author in self.authors:
