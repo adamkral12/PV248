@@ -1,5 +1,5 @@
 import sys
-from scorelib import Print
+from scorelib import Print, Person, Composition, Voice, Edition
 
 
 def load(filename):
@@ -10,18 +10,15 @@ def load(filename):
             data = line.split(":")
             tempData[data[0].rstrip()] = data[1].rstrip().strip()
         else:
-            prints.append(processBlock(tempData))
-            tempData = {}
-    prints.append(processBlock(tempData))
+            if tempData:
+                prints.append(Print.fromData(tempData))
+                tempData = {}
+    prints.append(Print.fromData(tempData))
     return prints
-
-
-def processBlock(data):
-    return Print.fromData(data)
 
 
 printclasses = load(sys.argv[1])
 
 for printclass in printclasses:
-    printclass.format()
-    print("")
+        printclass.format()
+        print("")

@@ -1,4 +1,5 @@
 import re
+import itertools
 
 
 class Voice:
@@ -6,10 +7,10 @@ class Voice:
         self.name = name
         self.range = range
 
-    def format(self):
+    def format(self, i):
         string = ""
         if self.name or self.range:
-            string += "Voice: "
+            string += "Voice " + i + ": "
             if self.name:
                 string += self.name
             if self.range:
@@ -42,7 +43,7 @@ class Person:
                 lifeString = str(self.born) + lifeString
             if self.died:
                 lifeString += str(self.died)
-            string += lifeString
+            string += "(" + lifeString + ")"
         return string
 
 
@@ -95,20 +96,24 @@ class Composition:
 
     def format(self):
         string = ""
+        i = 0
+        for author in self.authors:
+            i += 1
+            string += "Composer " + str(i) + ": " + author.format().strip() + '\n'
         if self.name:
-            string += "Composition: " + self.name + '\n'
-        if self.incipit:
-            string += "Incipit: " + self.incipit + '\n'
-        if self.key:
-            string += "Key: " + self.key + '\n'
+            string += "Title: " + self.name + '\n'
         if self.genre:
             string += "Genre: " + self.genre + '\n'
+        if self.key:
+            string += "Key: " + self.key + '\n'
         if self.year:
             string += "Composition Year: " + str(self.year) + '\n'
+        if self.incipit:
+            string += "Incipit: " + self.incipit + '\n'
+        i = 0
         for voice in self.voices:
-            string += voice.format()
-        for author in self.authors:
-            string += "Composer: " + author.format()
+            i += 1
+            string += voice.format(str(i))
         return string
 
 
@@ -140,7 +145,7 @@ class Composition:
     def processCompositionYear(data):
         regexp = re.compile('(.*)(\d\d\d\d)(.*)')
         match = regexp.match(data)
-        return match.group(1) if match else None
+        return match.group(2) if match else None
 
 
 class Edition:
@@ -156,12 +161,9 @@ class Edition:
 
     def format(self):
         string = self.composition.format()
-        if self.authors:
-            string += "\n"
         for author in self.authors:
             string += "Editor: " + author.format() + "\n"
-        if self.name:
-            string += "Edition: " + self.name + "\n"
+        string += "Edition: " + (self.name if self.name else "")
 
         return string
 
@@ -171,14 +173,14 @@ class Edition:
         editors = []
         if "Editor" in data:
             splitEditors = data["Editor"].split(",")
-            joinedEditors = [''.join(x) for x in zip(splitEditors[0::2], splitEditors[1::2])]
+            joinedEditors = [(i + "," + j).strip() if i and j else i for i, j in itertools.zip_longest(splitEditors[::2], splitEditors[1::2])]
             for editor in joinedEditors:
                 if Person.fromData(editor):
                     editors.append(Person.fromData(editor))
         return Edition(
             composition,
             editors,
-            data["Edition"] if "Ediiton" in data else None
+            data["Edition"] if "Edition" in data else None
         )
 
 
@@ -192,7 +194,11 @@ class Print:
         if self.print_id:
             print("Print Number: " + str(self.print_id))
         print(self.edition.format())
-        print("Partiture: " + str(self.partiture))
+        if self.partiture:
+            part = "yes"
+        else:
+            part = "no"
+        print("Partiture: " + part)
 
     def composition(self):
         return self.edition.composition
