@@ -94,12 +94,14 @@ class Composition:
         self.voices = voices
         self.authors = authors
 
-    def format(self):
+    def format(self, edition):
         string = ""
-        i = 0
+        if self.authors:
+            string += "Composer: "
         for author in self.authors:
-            i += 1
-            string += "Composer " + str(i) + ": " + author.format().strip() + '\n'
+            string += author.format().strip() + "; "
+        if self.authors:
+            string += "\n"
         if self.name:
             string += "Title: " + self.name + '\n'
         if self.genre:
@@ -108,6 +110,15 @@ class Composition:
             string += "Key: " + self.key + '\n'
         if self.year:
             string += "Composition Year: " + str(self.year) + '\n'
+
+        string += "Edition: " + (edition.name if edition.name else "") + '\n'
+        if edition.authors:
+            string += "Editor: "
+        for author in edition.authors:
+            string += author.format()
+        if edition.authors:
+            string += "\n"
+
         if self.incipit:
             string += "Incipit: " + self.incipit + '\n'
         i = 0
@@ -160,11 +171,7 @@ class Edition:
         self.name = name
 
     def format(self):
-        string = self.composition.format()
-        for author in self.authors:
-            string += "Editor: " + author.format() + "\n"
-        string += "Edition: " + (self.name if self.name else "")
-
+        string = self.composition.format(self)
         return string
 
 
