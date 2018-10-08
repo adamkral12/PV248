@@ -21,4 +21,3 @@ printclasses = load(sys.argv[1])
 
 for printclass in printclasses:
         printclass.format()
-        print("")

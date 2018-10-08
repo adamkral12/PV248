@@ -614,7 +614,7 @@ Title: Concerto (arr.)
 Genre: arrangement, oboe concerto
 Key: F
 Edition: Hawkes
-Voice 2: piano reduction
+Voice 1: piano reduction
 Partiture: no
 
 Print Number: 84
@@ -633,9 +633,9 @@ Title: d'amore concerto (A major)
 Key: A
 Edition: Ernst Eulenburg
 Editor: F. Schroeder
-Voice 2: violino 1
-Voice 3: violino 2
-Voice 5: violoncello & contrabasso
+Voice 1: violino 1
+Voice 2: violino 2
+Voice 3: violoncello & contrabasso
 Partiture: no
 
 Print Number: 87
@@ -1485,7 +1485,7 @@ Key: d
 Edition: Amadeus Verlag
 Editor: Bernhard Päuler, Christine Gevert
 Voice 1: oboe
-Voice 3: basso
+Voice 2: basso
 Partiture: yes
 
 Print Number: 199
@@ -2616,8 +2616,8 @@ Genre: triosonate for recorder, oboe and continuo
 Key: c
 Edition: Peters
 Editor: Waldemar Woehl
-Voice 2: oboe
-Voice 3: cello
+Voice 1: oboe
+Voice 2: cello
 Partiture: yes
 
 Print Number: 332
@@ -2640,8 +2640,8 @@ Print Number: 334
 Composer: Loeillet, Jean Baptiste
 Title: Sonatas for Variety of Instruments
 Genre: triosonates for recorder, oboe and continuo
-Voice 2: oboe
-Voice 3: continuo
+Voice 1: oboe
+Voice 2: continuo
 Partiture: no
 
 Print Number: 335
@@ -2688,7 +2688,7 @@ Composer: Bach, Johann Sebastian
 Title: Ein Herz, das seinen Jesum lebend weiss (no. 134, BWV134) am dritten Ostertag
 Genre: cantate
 Edition: Breitkopf & Härtel
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: yes
 
 Print Number: 341
@@ -2734,9 +2734,9 @@ Title: Concerto
 Genre: oboe concerto
 Key: d
 Edition: manuscript
-Voice 2: violin 1
-Voice 3: violin 2
-Voice 4: viola
+Voice 1: violin 1
+Voice 2: violin 2
+Voice 3: viola
 Partiture: no
 
 Print Number: 347
@@ -2772,7 +2772,7 @@ Title: Troisieme Suite Sonate (transposition maj 2 down)
 Genre: treble and continuo
 Key: C
 Edition: lilypond
-Voice 2: continuo
+Voice 1: continuo
 Partiture: yes
 
 Print Number: 351
@@ -2887,7 +2887,7 @@ Title: Sonata Quinta op. 2 no. 5
 Genre: Triosonate for 2 violins and continuo
 Key: g
 Edition: facsimile
-Voice 2: violino secondo
+Voice 1: violino secondo
 Partiture: no
 
 Print Number: 364
@@ -2903,7 +2903,7 @@ Composer: Hoffmann, Georg Melchior (1685--1715)
 Title: Meine Seele rühmt und preist
 Genre: cantate for tenor, recorder, oboe, violin and continuo
 Key: Bes
-Voice 2: oboe
+Voice 1: oboe
 Partiture: no
 
 Print Number: 366
@@ -3080,7 +3080,7 @@ Title: Symphony I, Wq 183/I
 Genre: orchestra
 Key: D
 Edition: Packard Humanities Institute
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: no
 
 Print Number: 387
@@ -3089,7 +3089,7 @@ Title: Symphony in e minor, Wq 178
 Genre: orchestra
 Key: e
 Edition: Packard Humanities Institute
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: no
 
 Print Number: 388
@@ -3395,7 +3395,7 @@ Composer: Muller, J. M.
 Title: Sonata VIII
 Key: a
 Edition: Prima la musica
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: no
 
 Print Number: 424
@@ -3419,7 +3419,7 @@ Title: Ein Herz, das seinen Jesum lebend weiss, BWV134
 Genre: cantate
 Key: Bes
 Editor: Philip Eames
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: no
 
 Print Number: 427
@@ -3428,7 +3428,7 @@ Title: Schwingt freudig euch empor, BWV36, am ersten Advent
 Genre: cantate
 Key: F
 Edition: Breitkopf & Härtel
-Voice 2: oboe d'amore 2 + text
+Voice 1: oboe d'amore 2 + text
 Partiture: yes
 
 Print Number: 428
@@ -3561,7 +3561,7 @@ Composer: Beethoven, Ludwig van
 Title: Symphonie nr. 3 op. 55
 Genre: orchestra
 Edition: Bärenreiter
-Voice 2: oboe 2
+Voice 1: oboe 2
 Partiture: no
 
 Print Number: 445
@@ -4555,7 +4555,7 @@ Composer: Vivaldi, Antonio
 Title: Concerto IX
 Genre: oboe concerto
 Key: d
-Voice 2: violino principale
+Voice 1: violino principale
 Partiture: no
 
 Print Number: 566
@@ -5329,7 +5329,7 @@ Voice 3: fagotto
 Partiture: no
 
 Print Number: 661
-Composer: Platti, Giovanni Benedetto (--1763)
+Composer: Platti, Giovanni Benedetto
 Title: Sonate für Oboe und Basso continuo
 Genre: oboe and continuo
 Key: c
@@ -6197,7 +6197,7 @@ Genre: bassoon concerto
 Key: Bes
 Edition: Breitkopf
 Editor: H. Kling
-Voice 2: piano reduction
+Voice 1: piano reduction
 Partiture: no
 
 Print Number: 776
@@ -6388,7 +6388,7 @@ Genre: cantata
 Key: a
 Edition: bachsoboe.de
 Editor: Markus Müller
-Voice 2: oboe 2 (incomplete)
+Voice 1: oboe 2 (incomplete)
 Partiture: no
 
 Print Number: 799
@@ -6423,8 +6423,8 @@ Edition: modern urtext
 Editor: Nils Jönsson
 Voice 1: oboe solo
 Voice 2: cembalo
-Voice 4: violino secondo
-Voice 5: viola
+Voice 3: violino secondo
+Voice 4: viola
 Partiture: yes
 
 Print Number: 803
@@ -6863,8 +6863,8 @@ Genre: oboe concerto
 Key: F
 Edition: lilypond L
 Voice 1: oboe solo
-Voice 3: violino secondo
-Voice 4: viola
+Voice 2: violino secondo
+Voice 3: viola
 Partiture: yes
 
 Print Number: 855
@@ -6883,8 +6883,8 @@ Key: b
 Edition: modern Gatineau (partiture)
 Editor: Michel Rondeau (partiture)
 Voice 1: oboe d'amore I
-Voice 3: violino II
-Voice 4: viola
+Voice 2: violino II
+Voice 3: viola
 Partiture: yes
 
 Print Number: 857
@@ -6920,7 +6920,7 @@ Title: Concerto für 2 Flöten, 2 Oboen, 2 Fagotte, Streicher und BC
 Genre: multiple concerto
 Key: d
 Editor: Uta Wald
-Voice 2: Hautbois II
+Voice 1: Hautbois II
 Partiture: no
 
 Print Number: 861
@@ -6929,7 +6929,7 @@ Title: Sonata IV
 Genre: triosonata violin oboe continuo
 Key: d
 Edition: facsimile
-Voice 2: Secundo
+Voice 1: Secundo
 Partiture: no
 
 Print Number: 862
@@ -7075,7 +7075,7 @@ Title: Triosonata e minor
 Genre: triosonata 2 oboes and continuo
 Key: e
 Edition: modern
-Voice 3: bassoon
+Voice 1: bassoon
 Partiture: no
 
 Print Number: 880
@@ -7096,8 +7096,8 @@ Genre: triosonate
 Key: F
 Edition: modern
 Voice 1: oboe
-Voice 3: bassoon
-Voice 4: cello (in D)
+Voice 2: bassoon
+Voice 3: cello (in D)
 Partiture: yes
 
 Print Number: 882
@@ -7116,7 +7116,7 @@ Title: Triosonata e minor
 Genre: triosonate two treble, continuo
 Key: e
 Voice 1: oboe
-Voice 3: bass
+Voice 2: bass
 Partiture: no
 
 Print Number: 885
@@ -7170,7 +7170,7 @@ Title: Magnificat BWV243
 Genre: orchestra & choir
 Key: D
 Editor: Calebe Barros
-Voice 2: oboe and oboe'damore II
+Voice 1: oboe and oboe'damore II
 Partiture: no
 
 Print Number: 891
@@ -7189,5 +7189,7 @@ Genre: arrangement, cantate
 Key: Es
 Edition: BES Brno
 Voice 1: oboe d'amore 1
+Partiture: no
+
 Partiture: no
 

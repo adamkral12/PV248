@@ -1,5 +1,6 @@
 import re
 import itertools
+from itertools import cycle
 
 
 class Voice:
@@ -11,10 +12,12 @@ class Voice:
         string = ""
         if self.name or self.range:
             string += "Voice " + i + ": "
-            if self.name:
+            if self.range and self.name:
+                string += self.range + ", " + self.name
+            elif self.name:
                 string += self.name
-            if self.range:
-                string += "; " + self.range
+            elif self.range:
+                string += self.range
             string += "\n"
         return string
 
@@ -46,7 +49,6 @@ class Person:
             string += "(" + lifeString + ")"
         return string
 
-
     @staticmethod
     def fromData(data) -> 'Person' or None:
         if data:
@@ -75,6 +77,12 @@ class Person:
                 return Person(data)
 
 
+    @staticmethod
+    def fromDataEditor(data) -> 'Person' or None:
+        if data:
+            return Person(data)
+
+
 class Composition:
     def __init__(
             self,
@@ -94,13 +102,14 @@ class Composition:
         self.voices = voices
         self.authors = authors
 
-    def format(self, edition):
+    def format(self, edition, printClass):
         string = ""
         if self.authors:
             string += "Composer: "
         for author in self.authors:
             string += author.format().strip() + "; "
         if self.authors:
+            string = string[:-2]
             string += "\n"
         if self.name:
             string += "Title: " + self.name + '\n'
@@ -111,20 +120,28 @@ class Composition:
         if self.year:
             string += "Composition Year: " + str(self.year) + '\n'
 
-        string += "Edition: " + (edition.name if edition.name else "") + '\n'
+        if (edition.name):
+            string += "Edition: " + edition.name + '\n'
         if edition.authors:
             string += "Editor: "
         for author in edition.authors:
-            string += author.format()
+            string += author.format() + ","
         if edition.authors:
+            string = string[:-1]
             string += "\n"
 
-        if self.incipit:
-            string += "Incipit: " + self.incipit + '\n'
         i = 0
         for voice in self.voices:
             i += 1
             string += voice.format(str(i))
+
+        if printClass.partiture:
+            string += "Partiture: yes\n"
+        else:
+            string += "Partiture: no\n"
+
+        if self.incipit:
+            string += "Incipit: " + self.incipit + '\n'
         return string
 
 
@@ -170,8 +187,8 @@ class Edition:
         self.authors = authors
         self.name = name
 
-    def format(self):
-        string = self.composition.format(self)
+    def format(self, printClass):
+        string = self.composition.format(self, printClass)
         return string
 
 
@@ -179,11 +196,27 @@ class Edition:
     def fromData(data, composition: Composition) -> 'Edition':
         editors = []
         if "Editor" in data:
-            splitEditors = data["Editor"].split(",")
-            joinedEditors = [(i + "," + j).strip() if i and j else i for i, j in itertools.zip_longest(splitEditors[::2], splitEditors[1::2])]
-            for editor in joinedEditors:
-                if Person.fromData(editor):
-                    editors.append(Person.fromData(editor))
+            splitEditors = []
+            for item in data["Editor"].split(","):
+                splitEditors.append(item.rstrip())
+            i = 0
+            for editor in splitEditors:
+                if i >= len(splitEditors):
+                    break
+                if " " in editor:
+                    if Person.fromDataEditor(splitEditors[i]):
+                        editors.append(Person.fromDataEditor(splitEditors[i]))
+                else:
+                    try:
+                        current = splitEditors[i]
+                        nextEditor = splitEditors[i + 1]
+                        if Person.fromData(current + nextEditor):
+                            editors.append(Person.fromData(current + "," + nextEditor))
+                        i += 1
+                    except IndexError:
+                        if Person.fromData(splitEditors[i]):
+                            editors.append(Person.fromData(splitEditors[i]))
+                i += 1
         return Edition(
             composition,
             editors,
@@ -200,12 +233,7 @@ class Print:
     def format(self):
         if self.print_id:
             print("Print Number: " + str(self.print_id))
-        print(self.edition.format())
-        if self.partiture:
-            part = "yes"
-        else:
-            part = "no"
-        print("Partiture: " + part)
+        print(self.edition.format(self))
 
     def composition(self):
         return self.edition.composition
