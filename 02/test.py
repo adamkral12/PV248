@@ -13,7 +13,8 @@ def load(filename):
             if tempData:
                 prints.append(Print.fromData(tempData))
                 tempData = {}
-    prints.append(Print.fromData(tempData))
+    if tempData:
+        prints.append(Print.fromData(tempData))
     return prints
 
 

@@ -1,6 +1,4 @@
 import re
-import itertools
-from itertools import cycle
 
 
 class Voice:
@@ -61,8 +59,11 @@ class Person:
                     return Person(name, int(yearsSplit.group(1)), int(yearsSplit.group(3)))
                 else:
                     yearBorn = re.search(r'(\d\d\d\d)(-|--)(.*)', years)
+                    yearDied = re.search(r'(.*)(-|--)(\d\d\d\d)', years)
                     if yearBorn:
                         return Person(name, int(yearBorn.group(1)))
+                    elif yearDied:
+                        return Person(name, None, int(yearDied.group(3)))
                     else:  # find * and +
                         yearBorn = None
                         yearDied = None
