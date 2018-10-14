@@ -63,7 +63,11 @@ def insertPrint(printClass: PrintDB, cur):
         conn.commit()
 
     query = "INSERT INTO print (id, edition, partiture) values (?,?,?);"
-    cur.execute(query, (printClass.print_id, editionId, printClass.partiture))
+    if printClass.partiture:
+        part = "Y"
+    else:
+        part = "N"
+    cur.execute(query, (printClass.print_id, editionId, part))
     conn.commit()
 
 
