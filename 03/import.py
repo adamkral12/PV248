@@ -9,9 +9,15 @@ def insertPrint(printClass: PrintDB, cur):
     composition = printClass.edition.composition
     composerIds = []
     for composer in composition.authors:
-        query = "insert into person (born, died, `name`) values (?,?,?);"
+        query = "SELECT id from person where born = ? AND died = ? AND name = ?;"
         cur.execute(query, (composer.born, composer.died, composer.name))
-        composerIds.append(cur.lastrowid)
+        people = cur.fetchone()
+        if people:
+            composerIds.append(people[0])
+        else:
+            query = "insert into person (born, died, `name`) values (?,?,?);"
+            cur.execute(query, (composer.born, composer.died, composer.name))
+            composerIds.append(cur.lastrowid)
 
     query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
     cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
@@ -25,9 +31,15 @@ def insertPrint(printClass: PrintDB, cur):
     # edition/editors
     editorIds = []
     for editor in printClass.editors():
-        query = "insert into person (born, died, `name`) values (?,?,?);"
+        query = "SELECT id from person where born = ? AND died = ? AND name = ?;"
         cur.execute(query, (editor.born, editor.died, editor.name))
-        editorIds.append(cur.lastrowid)
+        people2 = cur.fetchone()
+        if people2:
+            editorIds.append(people2[0])
+        else:
+            query = "insert into person (born, died, `name`) values (?,?,?);"
+            cur.execute(query, (editor.born, editor.died, editor.name))
+            editorIds.append(cur.lastrowid)
 
     edition = printClass.edition
     query = "INSERT INTO edition (score, `name`) values (?,?);"
