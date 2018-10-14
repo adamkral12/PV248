@@ -9,50 +9,58 @@ def insertPrint(printClass: PrintDB, cur):
     composition = printClass.edition.composition
     composerIds = []
     for composer in composition.authors:
-        query = "SELECT id from person where born = ? AND died = ? AND name = ?;"
-        cur.execute(query, (composer.born, composer.died, composer.name))
+        query = "SELECT id, name from person where name = ?;"
+        cur.execute(query, [composer.name])
         people = cur.fetchone()
         if people:
+            print(people)
             composerIds.append(people[0])
         else:
             query = "insert into person (born, died, `name`) values (?,?,?);"
             cur.execute(query, (composer.born, composer.died, composer.name))
             composerIds.append(cur.lastrowid)
+            conn.commit()
 
     query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
     cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
     compositionId = cur.lastrowid
+    conn.commit()
 
     for composerId in composerIds:
         query = "INSERT INTO score_author(score, composer) VALUES (?,?);"
         cur.execute(query, (compositionId, composerId))
-
+        conn.commit()
 
     # edition/editors
     editorIds = []
     for editor in printClass.editors():
-        query = "SELECT id from person where born = ? AND died = ? AND name = ?;"
-        cur.execute(query, (editor.born, editor.died, editor.name))
+        query = "SELECT id, name from person where name = ?;"
+        cur.execute(query, [editor.name])
         people2 = cur.fetchone()
         if people2:
+            print(people2)
             editorIds.append(people2[0])
         else:
             query = "insert into person (born, died, `name`) values (?,?,?);"
             cur.execute(query, (editor.born, editor.died, editor.name))
             editorIds.append(cur.lastrowid)
+            conn.commit()
 
     edition = printClass.edition
     query = "INSERT INTO edition (score, `name`) values (?,?);"
     cur.execute(query, (compositionId, edition.name))
     editionId = cur.lastrowid
+    conn.commit()
 
     for editorId in editorIds:
         query = "INSERT INTO edition_author (edition, editor) VALUES (?,?);"
         cur.execute(query, (editionId, editorId))
+        conn.commit()
     # voices
     for voice in composition.voices:
         query = "INSERT INTO voice (number, score, range, name) VALUES (?,?,?,?);"
-        cur.execute(query, (1, compositionId, voice.range, voice.name))
+        cur.execute(query, (voice.number, compositionId, voice.range, voice.name))
+        conn.commit()
 
     query = "INSERT INTO print (id, edition, partiture) values (?,?,?);"
     cur.execute(query, (printClass.print_id, editionId, printClass.partiture))
