@@ -121,7 +121,7 @@ class Composition:
         if self.year:
             string += "Composition Year: " + str(self.year) + '\n'
 
-        if (edition.name):
+        if edition.name:
             string += "Edition: " + edition.name + '\n'
         if edition.authors:
             string += "Editor: "
@@ -156,8 +156,8 @@ class Composition:
         composers = []
         if "Composer" in data:
             for composer in data["Composer"].split(";"):
-                if Person.fromData(composer):
-                    composers.append(Person.fromData(composer))
+                if Person.fromData(composer.strip()):
+                    composers.append(Person.fromData(composer.strip()))
 
         return Composition(
             data["Title"] if "Title" in data else None,
@@ -212,16 +212,17 @@ class Edition:
                         current = splitEditors[i]
                         nextEditor = splitEditors[i + 1]
                         if Person.fromData(current + nextEditor):
-                            editors.append(Person.fromData(current + "," + nextEditor))
+                            editors.append(Person.fromData(current + " " + nextEditor))
                         i += 1
                     except IndexError:
                         if Person.fromData(splitEditors[i]):
                             editors.append(Person.fromData(splitEditors[i]))
                 i += 1
+        name = data["Edition"].strip() if "Edition" in data else None
         return Edition(
             composition,
             editors,
-            data["Edition"] if "Edition" in data else None
+            name if name else None
         )
 
 

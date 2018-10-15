@@ -36,8 +36,8 @@ class CompositionDB(Composition):
         composers = []
         if "Composer" in data:
             for composer in data["Composer"].split(";"):
-                if Person.fromData(composer):
-                    composers.append(Person.fromData(composer))
+                if Person.fromData(composer.strip()):
+                    composers.append(Person.fromData(composer.strip()))
 
         return Composition(
             data["Title"] if "Title" in data else None,
