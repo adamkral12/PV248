@@ -251,6 +251,6 @@ class Print:
 
         return Print(
             Edition.fromData(data, Composition.fromData(data)),
-            data["Print Number"] if "Print Number" in data else None,
+            int(data["Print Number"]) if "Print Number" in data else None,
             partiture
         )

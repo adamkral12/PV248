@@ -9,11 +9,18 @@ def insertPrint(printClass: PrintDB, cur):
     composition = printClass.edition.composition
     composerIds = []
     for composer in composition.authors:
-        query = "SELECT id, name from person where name = ?;"
+        query = "SELECT id, name, born, died from person where name = ?;"
         cur.execute(query, [composer.name])
         people = cur.fetchone()
         if people:
-            print(people)
+            if not people[2]:
+                query = "update person set born = (?) where id = ?;"
+                cur.execute(query, (composer.born, people[0]))
+                conn.commit()
+            if not people[3]:
+                query = "update person set died = (?) where id = ?;"
+                cur.execute(query, (composer.died, people[0]))
+                conn.commit()
             composerIds.append(people[0])
         else:
             query = "insert into person (born, died, `name`) values (?,?,?);"
@@ -34,11 +41,18 @@ def insertPrint(printClass: PrintDB, cur):
     # edition/editors
     editorIds = []
     for editor in printClass.editors():
-        query = "SELECT id, name from person where name = ?;"
+        query = "SELECT id, name, born, died from person where name = ?;"
         cur.execute(query, [editor.name])
         people2 = cur.fetchone()
         if people2:
-            print(people2)
+            if not people2[2]:
+                query = "update person set born = ? where id = ?;"
+                cur.execute(query, (editor.born, people2[0]))
+                conn.commit()
+            if not people2[3]:
+                query = "update person set died = ? where id = ?;"
+                cur.execute(query, (editor.died, people2[0]))
+                conn.commit()
             editorIds.append(people2[0])
         else:
             query = "insert into person (born, died, `name`) values (?,?,?);"
@@ -89,11 +103,11 @@ def load(filename):
 
 printclasses = load(sys.argv[1])
 
-conn = sqlite3.connect("scorelib.dat")
+conn = sqlite3.connect(sys.argv[2])
 cur = conn.cursor()
 
 with open('scorelib.sql') as fp:
-    cur.executescript(fp.read())  # or con.executescript
+    cur.executescript(fp.read())
 
 for printclass in printclasses:
     insertPrint(printclass, cur)
