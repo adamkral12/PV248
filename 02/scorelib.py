@@ -52,7 +52,7 @@ class Person:
         if data:
             insideBrackets = re.search(r'(.*)\((.*?)\)', data)
             if insideBrackets:
-                name = insideBrackets.group(1)
+                name = insideBrackets.group(1).strip()
                 years = insideBrackets.group(2)
                 yearsSplit = re.search(r'(\d\d\d\d)(-|--)(\d\d\d\d)', years)
                 if yearsSplit:
@@ -199,7 +199,7 @@ class Edition:
         if "Editor" in data:
             splitEditors = []
             for item in data["Editor"].split(","):
-                splitEditors.append(item.rstrip())
+                splitEditors.append(item.rstrip().strip())
             i = 0
             for editor in splitEditors:
                 if i >= len(splitEditors):

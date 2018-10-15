@@ -7,7 +7,7 @@ def load(filename):
     prints = []
     for line in open(filename, "r"):
         if line not in ['\n', '\r\n']:
-            data = line.split(":")
+            data = line.split(":", 1)
             tempData[data[0].rstrip()] = data[1].rstrip().strip()
         else:
             if tempData:
