@@ -39,11 +39,15 @@ class CompositionDB(Composition):
                 if Person.fromData(composer.strip()):
                     composers.append(Person.fromData(composer.strip()))
 
+        title = data["Title"].rstrip().strip() if "Title" in data else None
+        incipit = data["Incipit"].rstrip().strip() if "Incipit" in data else None
+        key = data["Key"].rstrip().strip() if "Key" in data else None
+        genre = data["Genre"].rstrip().strip() if "Genre" in data else None
         return Composition(
-            data["Title"] if "Title" in data else None,
-            data["Incipit"] if "Incipit" in data else None,
-            data["Key"] if "Key" in data else None,
-            data["Genre"] if "Genre" in data else None,
+            title if title else None,
+            incipit if incipit else None,
+            key if key else None,
+            genre if genre else None,
             Composition.processCompositionYear(data["Composition Year"]) if "Composition Year" in data else None,
             voices,
             composers

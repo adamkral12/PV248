@@ -28,10 +28,44 @@ def insertPrint(printClass: PrintDB, cur):
             composerIds.append(cur.lastrowid)
             conn.commit()
 
-    query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
+    query = "SELECT id, name, genre, key, incipit, year " \
+            "FROM score " \
+            "WHERE name is ? " \
+            "and genre is ? " \
+            "AND key is ? " \
+            "AND incipit is ?" \
+            "AND year is ?;"
     cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
-    compositionId = cur.lastrowid
-    conn.commit()
+    foundCompositions = cur.fetchone()
+    if foundCompositions:
+        query = "SELECT name, range FROM voice where score is ?"
+        cur.execute(query, [foundCompositions[0]])
+        foundVoices = cur.fetchall()
+        sameVoices = set((voice.name, voice.range) for voice in composition.voices) == set(foundVoices)
+        if sameVoices:
+            query = "SELECT name FROM score_author join person on score_author.composer = person.id where score is ?"
+            cur.execute(query, [foundCompositions[0]])
+            foundComposers = cur.fetchall()
+            sameComposers = set(author.name for author in composition.authors) == (set([author[0] for author in foundComposers]))
+            if sameComposers:
+                print("same composers")
+                compositionId = foundCompositions[0]
+            else:
+                query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
+                cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
+                compositionId = cur.lastrowid
+                conn.commit()
+        else:
+            # insert
+            query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
+            cur.execute(query,(composition.name, composition.genre, composition.key, composition.incipit, composition.year))
+            compositionId = cur.lastrowid
+            conn.commit()
+    else:
+        query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
+        cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
+        compositionId = cur.lastrowid
+        conn.commit()
 
     for composerId in composerIds:
         query = "INSERT INTO score_author(score, composer) VALUES (?,?);"
@@ -61,10 +95,18 @@ def insertPrint(printClass: PrintDB, cur):
             conn.commit()
 
     edition = printClass.edition
-    query = "INSERT INTO edition (score, `name`) values (?,?);"
+    query = "SELECT score, name, year from edition " \
+            "where score is ? " \
+            "and name is ?;"
     cur.execute(query, (compositionId, edition.name))
-    editionId = cur.lastrowid
-    conn.commit()
+    foundEditions = cur.fetchone()
+    if foundEditions:
+        editionId = foundEditions[0]
+    else:
+        query = "INSERT INTO edition (score, `name`) values (?,?);"
+        cur.execute(query, (compositionId, edition.name))
+        editionId = cur.lastrowid
+        conn.commit()
 
     for editorId in editorIds:
         query = "INSERT INTO edition_author (edition, editor) VALUES (?,?);"
