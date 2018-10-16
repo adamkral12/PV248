@@ -36,32 +36,38 @@ def insertPrint(printClass: PrintDB, cur):
             "AND incipit is ?" \
             "AND year is ?;"
     cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
-    foundCompositions = cur.fetchone()
+    foundCompositions = cur.fetchall()
+    new_composition = False
     if foundCompositions:
-        query = "SELECT name, range FROM voice where score is ?"
-        cur.execute(query, [foundCompositions[0]])
-        foundVoices = cur.fetchall()
-        sameVoices = set((voice.name, voice.range) for voice in composition.voices) == set(foundVoices)
-        if sameVoices:
-            query = "SELECT name FROM score_author join person on score_author.composer = person.id where score is ?"
-            cur.execute(query, [foundCompositions[0]])
-            foundComposers = cur.fetchall()
-            sameComposers = set(author.name for author in composition.authors) == (set([author[0] for author in foundComposers]))
-            if sameComposers:
-                print("same composers")
-                compositionId = foundCompositions[0]
+        for foundComposition in foundCompositions:
+            query = "SELECT name, range FROM voice where score is ?"
+            cur.execute(query, [foundComposition[0]])
+            foundVoices = cur.fetchall()
+            sameVoices = set((voice.name, voice.range) for voice in composition.voices) == set(foundVoices)
+            if sameVoices:
+                query = "SELECT name FROM score_author join person on score_author.composer = person.id where score is ?"
+                cur.execute(query, [foundComposition[0]])
+                foundComposers = cur.fetchall()
+                sameComposers = set(author.name for author in composition.authors) == (set([author[0] for author in foundComposers]))
+                if sameComposers:
+                    compositionId = foundComposition[0]
+                else:
+                    new_composition = True
+                    query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
+                    cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
+                    compositionId = cur.lastrowid
+                    conn.commit()
+                    break
             else:
+                # insert
+                new_composition = True
                 query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
-                cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
+                cur.execute(query,(composition.name, composition.genre, composition.key, composition.incipit, composition.year))
                 compositionId = cur.lastrowid
                 conn.commit()
-        else:
-            # insert
-            query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
-            cur.execute(query,(composition.name, composition.genre, composition.key, composition.incipit, composition.year))
-            compositionId = cur.lastrowid
-            conn.commit()
+                break
     else:
+        new_composition = True
         query = "INSERT INTO score (name, genre, key, incipit, year) values (?,?,?,?,?);"
         cur.execute(query, (composition.name, composition.genre, composition.key, composition.incipit, composition.year))
         compositionId = cur.lastrowid
@@ -101,7 +107,17 @@ def insertPrint(printClass: PrintDB, cur):
     cur.execute(query, (compositionId, edition.name))
     foundEditions = cur.fetchone()
     if foundEditions:
-        editionId = foundEditions[0]
+        query = "SELECT name FROM edition_author join person on edition_author.editor = person.id where edition_author.edition is ?"
+        cur.execute(query, [foundEditions[0]])
+        foundEditors = cur.fetchall()
+        sameEditors = set(author.name for author in edition.authors) == (set([author[0] for author in foundEditors]))
+        if sameEditors:
+            editionId = foundEditions[0]
+        else:
+            query = "INSERT INTO edition (score, `name`) values (?,?);"
+            cur.execute(query, (compositionId, edition.name))
+            editionId = cur.lastrowid
+            conn.commit()
     else:
         query = "INSERT INTO edition (score, `name`) values (?,?);"
         cur.execute(query, (compositionId, edition.name))
@@ -113,10 +129,11 @@ def insertPrint(printClass: PrintDB, cur):
         cur.execute(query, (editionId, editorId))
         conn.commit()
     # voices
-    for voice in composition.voices:
-        query = "INSERT INTO voice (number, score, range, name) VALUES (?,?,?,?);"
-        cur.execute(query, (voice.number, compositionId, voice.range, voice.name))
-        conn.commit()
+    if new_composition:
+        for voice in composition.voices:
+            query = "INSERT INTO voice (number, score, range, name) VALUES (?,?,?,?);"
+            cur.execute(query, (voice.number, compositionId, voice.range, voice.name))
+            conn.commit()
 
     query = "INSERT INTO print (id, edition, partiture) values (?,?,?);"
     if printClass.partiture:

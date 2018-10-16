@@ -12,6 +12,11 @@ def dict_factory(cursor, row):
     for idx, col in enumerate(cursor.description):
         if col[0] == 'author_name':
             name = row[idx]
+        if col[0] == 'Partiture':
+            if row[idx] == 'Y':
+                data[col[0]] = True
+            else:
+                data[col[0]] = False
         else:
             data[col[0]] = row[idx]
     d[name] = data
