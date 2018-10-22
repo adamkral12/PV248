@@ -1,0 +1,2188 @@
+{
+    "Bach, Johann Sebastian": [
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmass Oratorio",
+            "Genre": "cantata",
+            "Key": "C",
+            "Composition Year": 1728,
+            "Incipit": "treble 2/4 c4 d8 e8 |",
+            "Edition": "Barenreiter",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "g-d3, violin,  part"
+                },
+                "2": {
+                    "name": null,
+                    "range": "C2-c, cello, part"
+                },
+                "3": {
+                    "name": null,
+                    "range": "c-e3, cis"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "xy",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Konzert für Violine und Oboe oder zwei Violinen",
+            "Genre": null,
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "violine 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "violine 2"
+                },
+                "3": {
+                    "name": null,
+                    "range": "piano reduction"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Sei Lob und Ehr dem höchsten Gut BWV117",
+            "Genre": "kantáta",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Breitkopf & Härtel",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe II, oboe d'amore II"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Weinen, Klagen, Sorgen, Zagen BWV12",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe (tiefer Kammerton)"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Herr, gehe nicht ins Gericht mit deinem Knecht (BWV105, zum 9. Sonntag nach Trinitatis)",
+            "Genre": "cantate",
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "2014",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Markus Müller",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Air",
+            "Genre": null,
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "violin 1"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Magnificat BWV243",
+            "Genre": "solo, orchestra, choir",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "St Mathew's passion BWV244",
+            "Genre": "solo, orchestra, choir",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1 orchestra 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2 orchestra 1"
+                },
+                "3": {
+                    "name": null,
+                    "range": "oboe 1 orchestra 2"
+                },
+                "4": {
+                    "name": null,
+                    "range": "oboe 2 orchestra 2"
+                },
+                "5": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ich habe genug, BWV82",
+            "Genre": "cantate for bass, oboe, strings, continuo",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Contrapunctus 14 & 15 (Kunst der Fuge)",
+            "Genre": "2 voice",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Inventio II",
+            "Genre": "harpsichord",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "facsiile",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ein Herz, das seinen Jesum lebend weiss (no. 134, BWV134) am dritten Ostertag",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Breitkopf & Härtel",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Concerto for 2 violins, BWV1043",
+            "Genre": "double concerto for 2 violins",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Breitkopf",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "violin 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "violin 2"
+                },
+                "3": {
+                    "name": null,
+                    "range": "2 violins and piano arrangement"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Friedrich Spiro",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Orchestral Suite no. 1, BWV1066",
+            "Genre": "orchestra",
+            "Key": "C",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe primo"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Orchestral Suite no. 4, BWV1069",
+            "Genre": "orchestra",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                },
+                "3": {
+                    "name": null,
+                    "range": "oboe 3"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ein Herz, das seinen Jesum lebend weiss, BWV134",
+            "Genre": "cantate",
+            "Key": "Bes",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Schwingt freudig euch empor, BWV36, am ersten Advent",
+            "Genre": "cantate",
+            "Key": "F",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Breitkopf & Härtel",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe d'amore 2 + text"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Gelobet seist du, Jesu Christ, BWV91, zum 1. weihnachtstag",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Bärenreiter",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 3"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "St. John's Passion, BWV245",
+            "Genre": "orchestra",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "aria for soprano, oboe and continuo Seufzer, Thränen, Kummer, Noth from BWV21",
+            "Genre": "cantate",
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Gott der Herr ist Sonn und Schild BWV79",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe (incomplete)"
+                },
+                "2": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Jesu, der du meine Seele, BWV78",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe (incomplete)"
+                },
+                "2": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Alles nur nach Gottes Willen, BWV72",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe (incomplete)"
+                },
+                "2": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Pierre Gouin",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Wie schön leuchet der Morgenstern, BWV1, am feste Mariae Verkündigung",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "The Cathedral Brass",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "caccia 1"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Endlich, endlich aria from BWV56 (Ich will den Kreuzstab gerne tragen)",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "aria Ruhig und insich zufrieden from cantate BWV204",
+            "Genre": "cantate (soprano, 2 oboes and continuo)",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ich will den Kreuzstab gerne tragen BWV56, cantate bass solo, choir and orchestra",
+            "Genre": "cantate",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Sei Lob und Ehr dem höchsten Gut, BWV117",
+            "Genre": "cantate",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1 and oboe d'amore 1"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ein feste Burg ist unser Gott, BWV80, am Reformationsfest",
+            "Genre": "cantate",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe d'amore 1"
+                },
+                "3": {
+                    "name": null,
+                    "range": "oboe 2"
+                },
+                "4": {
+                    "name": null,
+                    "range": "oboe d'amore 2"
+                },
+                "5": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Geist und Seele wird vermwirret, BWV35",
+            "Genre": "cantate",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "First Brandenburg, 2nd movement",
+            "Genre": "orchestra",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Günter Graulich",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "arie for soprano and obligato violin Wenn die Frühlingslüfte streichen from Hochzeitskantate Weichet nur, betrübte Schatten, BWV202",
+            "Genre": "cantate",
+            "Key": "e",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "violin"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Weichet nur betrübte Schatten, BWV202 for soprano, oboe and continuo from J. S. Bach: Complete arias & sinfonias",
+            "Genre": "cantate",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                },
+                "2": {
+                    "name": null,
+                    "range": "continuo"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Jesus bleibet meine Freunde, BWV147",
+            "Genre": "cantate",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "annedeblois",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "violin 1 (oboe ad lib.)"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Orchestral Suite no. 3, BWV1068",
+            "Genre": "orchestra",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Weichet nur, betrübte Schatten, BWV202",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Herr, wie du willt, so schick's mit mir, BWV73, Sunday 3 after Epiphany",
+            "Genre": "cantate",
+            "Key": "Bes",
+            "Composition Year": 1727,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1 and 2 (incomplete, solo aria)"
+                },
+                "2": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Robert Mealy",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ein feste Burg ist unser Gott, BWV80",
+            "Genre": "cantate",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe and oboe da caccia (solo arias)"
+                },
+                "2": {
+                    "name": null,
+                    "range": "text"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Hugo Ruf",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Sich üben im Lieben from Hochzeitskantate Weichet nur betrübte Schatten BWV202",
+            "Genre": "cantate, aria for soprano, oboe and continuo",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "soprano and oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmas Oratorio BWV248",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Breitkopf & Härtel",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2"
+                },
+                "3": {
+                    "name": null,
+                    "range": "Oboe da caccia 1"
+                },
+                "4": {
+                    "name": null,
+                    "range": "Oboe da caccia 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmas Oratorio BWV248",
+            "Genre": "cantate",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 1"
+                },
+                "2": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 2"
+                },
+                "3": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 3"
+                },
+                "4": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 4"
+                },
+                "5": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 5"
+                },
+                "6": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 1 Teil 6"
+                },
+                "7": {
+                    "name": null,
+                    "range": "Oboe 1 Teil 1"
+                },
+                "8": {
+                    "name": null,
+                    "range": "Oboe da caccia 1 Teil 2"
+                },
+                "9": {
+                    "name": null,
+                    "range": "Oboe 1 Teil 3"
+                },
+                "10": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 1"
+                },
+                "11": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 2"
+                },
+                "12": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 3"
+                },
+                "13": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 4"
+                },
+                "14": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 5"
+                },
+                "15": {
+                    "name": null,
+                    "range": "Oboe & Oboe d'amore 2 Teil 6"
+                },
+                "16": {
+                    "name": null,
+                    "range": "Oboe 2 Teil 1"
+                },
+                "17": {
+                    "name": null,
+                    "range": "Oboe da caccia 2 Teil 2"
+                },
+                "18": {
+                    "name": null,
+                    "range": "Oboe 2 Teil 3"
+                },
+                "19": {
+                    "name": null,
+                    "range": "Text Teil 1"
+                },
+                "20": {
+                    "name": null,
+                    "range": "Text Teil 2"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmas Oratorio BWV248",
+            "Genre": "oboe & oboe d'amore orchestra excerpts",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Crozzoli",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Antonio Fanna",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Concerto III",
+            "Genre": "harpsichord",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Bourrée",
+            "Genre": "harpsichord",
+            "Key": "a",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Gott, wir danken deiner Güte BWV193/3",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Nun, du wirst mein Gewissen stillen BWV78/6",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Quoniam tu solus sanctus BWV236/5",
+            "Genre": "mass, oboe (incomplete)",
+            "Key": "e",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Gott versorget, alles Leben BWV187/5",
+            "Genre": "mass, oboe (incomplete)",
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Qui tollis peccata mundi, BWV233/4",
+            "Genre": "mass, oboe (incomplete)",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Dein Leib, das Manna meiner Seele BWV246/13",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "Bes",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Mein Jesu soll mein alles sein, BWV75/3",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "G",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ich habe meine Zuversicht, BWV188/1",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "F",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Qui tollis peccata mundi",
+            "Genre": "mass, oboe (incomplete)",
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Ich will an den Himmel denken",
+            "Genre": "cantate, oboe (incomplete)",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Musica Rara",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Wer nur den lieben Gott lässt walten BWV93/6",
+            "Genre": "cantate (incomplete) for soprano, oboe and continuo",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "bachsoboe.de",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "R. P. Block",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Was Gott tut, das ist wohlgetan BWV98/3",
+            "Genre": "cantate (incomplete) for soprano, oboe and continuo",
+            "Key": "c",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "bachsoboe.de",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe 1"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Hagen Wangenheim",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Concerto in F",
+            "Genre": "oboe concerto",
+            "Key": "F",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Nova Music",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe solo"
+                },
+                "2": {
+                    "name": null,
+                    "range": "piano reduction"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Partita g minor for oboe solo (from BWV1013)",
+            "Genre": "arrangement oboe solo",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Polonéza (Knižočka Anny Magdalény Bachovej, no. 16)",
+            "Genre": "piano",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "modern",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Malé prelúdiá no. 3, BWV927",
+            "Genre": "piano",
+            "Key": "F",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "modern",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmas oratorio, recitativo no. 61",
+            "Genre": "recitativo tenor, 2 oboe d'amore and continuo",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Christmas oratorio, recitativo no. 3",
+            "Genre": "recitativo alto, 2 oboe d'amore and continuo",
+            "Key": "A",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Dvojhlasné invencie, trojhlasné invencie",
+            "Genre": "harpsichord",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Opus",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Malé prelúdiá a Fugety",
+            "Genre": "harpsichord",
+            "Key": null,
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Opus",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": [
+                {
+                    "name": "H. Kling",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Sechs Partiten",
+            "Genre": "harpsichord",
+            "Key": null,
+            "Composition Year": 1731,
+            "Incipit": null,
+            "Edition": "urtext, Henle Verlag",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Es ist euch gut, dass ich hingehe BWV108",
+            "Genre": "cantate oboe d'amore, bass, strings, continuo (incomplete)",
+            "Key": "A",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe d'amore"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Bereitet die Wege, bereitet die Bahn! BWV132/1",
+            "Genre": "soprano, oboe d'amore, strings and continuo (incomplete)",
+            "Key": "A",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe d'amore (non transposed)"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Cantata Aus tiefer Not BWV 38/3",
+            "Genre": "cantata",
+            "Key": "a",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "modern",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Andreas Czerney",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Cantata Aus tiefer Not BWV 38",
+            "Genre": "cantata",
+            "Key": "a",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "bachsoboe.de",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe 2 (incomplete)"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "aria Ich folge dir gleichfalls (Johannes Passion BWV245)",
+            "Genre": "aria soprano, traverso, continuo",
+            "Key": "Bes",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Nils Jönsson",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "cantata Mit Fried und Freud (BWV125)",
+            "Genre": "cantata",
+            "Key": "e",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "corno (incomplete)"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Raymond Meylan",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Sonate G moll BWV1030b",
+            "Genre": "transcription sonata oboe obligato harpsichord",
+            "Key": "g",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "Henry Litolff's Verlag (Peters)",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Applicatio in C dur aus dem Clavierbüchlein für Wilhelm Friedemann Bach",
+            "Genre": "harpsichord",
+            "Key": "C",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "modern",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "aria Qui Sedes from b minor Mass (BWV232)",
+            "Genre": "alto, oboe d'amore + strings",
+            "Key": "b",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "modern Gatineau (partiture)",
+            "Partiture": true,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe d'amore I"
+                },
+                "2": {
+                    "name": null,
+                    "range": ""
+                },
+                "3": {
+                    "name": null,
+                    "range": "violino II"
+                },
+                "4": {
+                    "name": null,
+                    "range": "viola"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Markus Müller",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Nimm, was dein ist, und gehe hin BWV144",
+            "Genre": "cantate",
+            "Key": "d",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": "bachsoboe.de",
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe d'amore (incomplete)"
+                }
+            },
+            "Editor": [
+                {
+                    "name": "Uta Wald",
+                    "born": null,
+                    "died": null
+                }
+            ]
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Kommt eilet und laufet, BWV249, Easter Oratorio",
+            "Genre": "orchestra & choir",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": "oboe and oboe d'amore I"
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe II"
+                }
+            },
+            "Editor": []
+        },
+        {
+            "Print Number": 1,
+            "Composer": [
+                {
+                    "name": "Bach, Johann Sebastian",
+                    "born": 1685,
+                    "died": 1750
+                }
+            ],
+            "Title": "Magnificat BWV243",
+            "Genre": "orchestra & choir",
+            "Key": "D",
+            "Composition Year": null,
+            "Incipit": null,
+            "Edition": null,
+            "Partiture": false,
+            "Voices": {
+                "1": {
+                    "name": null,
+                    "range": ""
+                },
+                "2": {
+                    "name": null,
+                    "range": "oboe and oboe'damore II"
+                }
+            },
+            "Editor": []
+        }
+    ]
+}
