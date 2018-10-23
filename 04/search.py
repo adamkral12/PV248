@@ -30,14 +30,15 @@ def dict_factory(cursor, row):
     d[name] = data
     return d
 
-conn = sqlite3.connect("../03/scorelib.dat")
+
+conn = sqlite3.connect("scorelib.dat")
 conn.row_factory = dict_factory
 cur = conn.cursor()
 
 # "v.number as 'voice_number', v.name as 'voice_name', v.number as 'voice_number' "
 # "join voice v on s.id = v.score " \
 
-query = "Select p.name as author_name, p.id as 'Print Number', " \
+query = "Select p.name as author_name, print.id as 'Print Number', " \
     "p.name as 'Composer', s.name as 'Title', s.id as 's_id', e.id as 'e_id', " \
     "s.genre as 'Genre', s.key as 'Key', s.year as 'Composition Year', " \
         "s.incipit as 'Incipit', " \
@@ -63,13 +64,13 @@ for k in composers.__iter__():
 
 # add voices
 conn.close()
-conn = sqlite3.connect("../03/scorelib.dat")
+conn = sqlite3.connect("scorelib.dat")
 cur = conn.cursor()
 
 for k, v in jsonData.items():
     for k2, v2 in enumerate(v):
         voices = {}
-        query = "Select number, range, name from voice where score = ?;"
+        query = "Select number, name, range from voice where score = ?;"
         cur.execute(query, [v2['s_id']])
         foundVoices = cur.fetchall()
         for voice in foundVoices:

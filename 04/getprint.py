@@ -12,7 +12,7 @@ def dict_factory(cursor, row):
     return d
 
 
-conn = sqlite3.connect("../03/scorelib.dat")
+conn = sqlite3.connect("scorelib.dat")
 conn.row_factory = dict_factory
 cur = conn.cursor()
 
