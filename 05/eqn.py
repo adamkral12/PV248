@@ -6,7 +6,7 @@ input = sys.argv[1]
 
 rightSides = []
 resultVars = []
-setOfVars = set()
+setOfVars = list()
 minus = 1
 for k, line in enumerate(open(sys.argv[1], "r")):
     thingies = re.split("(\+|\-|\=)", line)
@@ -39,7 +39,8 @@ for k, line in enumerate(open(sys.argv[1], "r")):
 
         if koef is not None and var is not None:
             vars[var] = koef
-            setOfVars.add(var)
+            if var not in setOfVars:
+                setOfVars.append(var)
         elif result is not None:
             rightSides.append(result)
         else:
@@ -47,8 +48,6 @@ for k, line in enumerate(open(sys.argv[1], "r")):
     resultVars.append(vars)
 
 
-print("result vars ",resultVars)
-print("set {}", setOfVars)
 koefs = {}
 
 for var in setOfVars:
@@ -59,18 +58,10 @@ for var in setOfVars:
         else:
             koefs[var].append(0)
 
-print("koefs {}", koefs)
 
 finalKoefs = []
 for k, finalKoef in koefs.items():
     finalKoefs.append(finalKoef)
-
-print("final koefs {}", finalKoefs)
-print("right sides", rightSides)
-a = np.array(finalKoefs)
-b = np.array(rightSides)
-x = np.linalg.solve(a, b)
-print(x)
 
 matrix1 = np.column_stack((finalKoefs, rightSides))
 koefRank = np.linalg.matrix_rank(finalKoefs)
