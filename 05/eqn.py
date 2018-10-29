@@ -17,6 +17,8 @@ for k, line in enumerate(open(sys.argv[1], "r")):
         var = None
         result = None
         thingy = thingy.strip()
+        if not thingy:
+            continue
         if thingy == '+' or thingy == '=':
             minus = 1
             continue
@@ -48,19 +50,15 @@ for k, line in enumerate(open(sys.argv[1], "r")):
     resultVars.append(vars)
 
 
-koefs = {}
-
-for var in setOfVars:
-    koefs[var] = []
-    for result in resultVars:
-        if var in result:
-            koefs[var].append(result[var])
-        else:
-            koefs[var].append(0)
-
-
 finalKoefs = []
-for k, finalKoef in koefs.items():
+
+for result in resultVars:
+    finalKoef = []
+    for var in setOfVars:
+        if var in result:
+            finalKoef.append(result[var])
+        else:
+            finalKoef.append(0)
     finalKoefs.append(finalKoef)
 
 matrix1 = np.column_stack((finalKoefs, rightSides))
