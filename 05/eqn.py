@@ -25,7 +25,7 @@ for k, line in enumerate(open(sys.argv[1], "r")):
         elif thingy == '-':
             minus = -1
             continue
-        match = re.match(r"(\d+)([A-z])|([A-z])|([\d+])", thingy)
+        match = re.match(r"(\d+)([A-z])|([A-z])|(\d+)", thingy)
         if not match:
             raise Exception("Error in matching vars or numbers")
         if match.group(1) and match.group(2): # coefficient and number
@@ -52,6 +52,8 @@ for k, line in enumerate(open(sys.argv[1], "r")):
 
 finalKoefs = []
 
+setOfVars.sort()
+
 for result in resultVars:
     finalKoef = []
     for var in setOfVars:
@@ -65,8 +67,6 @@ matrix1 = np.column_stack((finalKoefs, rightSides))
 koefRank = np.linalg.matrix_rank(finalKoefs)
 augRank = np.linalg.matrix_rank(matrix1)
 dim = len(setOfVars) - koefRank
-
-setOfVars.sort()
 
 if augRank != koefRank:
     print("no solution")
