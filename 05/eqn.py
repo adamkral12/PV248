@@ -66,7 +66,8 @@ koefRank = np.linalg.matrix_rank(finalKoefs)
 augRank = np.linalg.matrix_rank(matrix1)
 dim = len(setOfVars) - koefRank
 
-setOfVars = list(setOfVars)
+setOfVars.sort()
+
 if augRank != koefRank:
     print("no solution")
 else:
