@@ -1,9 +1,9 @@
+from datetime import datetime
+from datetime import timedelta
 import sys
 import pandas
 import numpy
 import json
-from datetime import datetime
-from datetime import timedelta
 
 
 def normalizeColName(col: str):
@@ -28,7 +28,9 @@ def regression(groupedDates):
     #     print(key)
     #     print(date)
     startDate = datetime.strptime('2018-09-17', "%Y-%m-%d").date()
-    x = [(datetime.strptime(key, "%Y-%m-%d").date() - startDate).days for key, val in groupedDates.iteritems()]
+    x = [
+        (datetime.strptime(key, "%Y-%m-%d").date() - startDate).days for key, val in groupedDates.iteritems()
+    ]
 
     y = []
     totalSum = 0
@@ -36,10 +38,10 @@ def regression(groupedDates):
         totalSum += item
         y.append(totalSum)
 
-    x = numpy.array(x)
     y = numpy.array(y)
-    xi = x[:, numpy.newaxis]
-    regSlope, _, _, _ = numpy.linalg.lstsq(xi, y, rcond=None)
+    x = numpy.array(x)
+    xnorm = x[:, numpy.newaxis]
+    regSlope, _ , _ , _  = numpy.linalg.lstsq(xnorm, y, rcond=None)
     regSlope = regSlope[0]
     if regSlope != 0:
         sixteen = str(startDate + timedelta(16 / regSlope))
@@ -73,24 +75,32 @@ else:
     studentDateValues = studentDateValues.groupby(axis=1, level=0).sum()
     studentDateValues = studentDateValues.T
     studentDateValues = studentDateValues[studentDateValues.keys()[0]]
-    # print(studentDateValues[studentDateValues.keys()[0]])
 
     studentValues = studentValues.rename(columns=lambda x: normalizeColName(x), inplace=False)
 
     studentValues = studentValues.groupby(axis=1, level=0).sum()
     studentValues = studentValues.T
 
-slope, sixteen_points_date, twenty_points_date = regression(studentDateValues)
+slope, dateSixteen, dateTwenty = regression(studentDateValues)
 values = studentValues.values
 
-data = {
-    'mean': numpy.mean(values),
-    'median': numpy.percentile(values, 50),
-    'total': numpy.sum(values),
-    'passed': len([i for i in values if i > 0]),
-    'regression slope': slope,
-    'date 16': sixteen_points_date,
-    'date 20': twenty_points_date,
-}
+if dateSixteen is None or dateTwenty is None:
+    data = {
+        'mean': numpy.mean(values),
+        'median': numpy.percentile(values, 50),
+        'total': numpy.sum(values),
+        'passed': len([i for i in values if i > 0]),
+        'regression slope': slope,
+    }
+else:
+    data = {
+        'mean': numpy.mean(values),
+        'median': numpy.percentile(values, 50),
+        'total': numpy.sum(values),
+        'passed': len([i for i in values if i > 0]),
+        'regression slope': slope,
+        'date 16': dateSixteen,
+        'date 20': dateTwenty,
+    }
 
 print(json.dumps(data, indent=4, ensure_ascii=False))

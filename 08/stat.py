@@ -3,6 +3,7 @@ import pandas
 import numpy
 import json
 
+
 def normalizeColName(col: str, usedMode: str):
     col = col.strip()
     if col == 'student':
@@ -17,6 +18,7 @@ def normalizeColName(col: str, usedMode: str):
     else:
         raise Exception("unknown mode {}".format(usedMode))
 
+
 fileName = sys.argv[1]
 mode = sys.argv[2]
 data = {}
@@ -26,17 +28,10 @@ df2.rename(columns=lambda x: normalizeColName(x, mode), inplace=True)
 df2 = df2.groupby(axis=1, level=0).sum()
 
 for colName in list(df2.columns.values):
-    # print(colName)
     if colName == "student":
         pass
     else:
         pointInCol = df2.loc[:, colName]
-        # print(pointInCol.values)
-        # print(numpy.mean(pointInCol.values))
-        # print(numpy.median(pointInCol.values))
-        # print(numpy.percentile(pointInCol.values, 25))
-        # print(numpy.percentile(pointInCol.values, 75))
-        # print(passed)
 
         passed = len([i for i in pointInCol.values if i > 0])
         dataInCol = {
