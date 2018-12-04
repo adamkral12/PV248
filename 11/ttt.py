@@ -2,7 +2,7 @@ import http.server
 import sys
 from urllib.parse import urlparse
 import json
-
+import copy
 
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     gameBoards = dict()
@@ -10,20 +10,44 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
     def generateNewId(self):
         if self.gameBoards.__len__() == 0:
             return 1
+        print('keys {}'.format(self.gameBoards.keys()))
         return max(self.gameBoards) + 1
 
-    def newBoard(self, id, name):
-        self.gameBoards[id] = dict()
-        self.gameBoards[id]['name'] = name
-        self.gameBoards[id]['board'] = [
+    def newBoard(self, boardId, name):
+        self.gameBoards[boardId] = dict()
+        self.gameBoards[boardId]['name'] = name
+        self.gameBoards[boardId]['board'] = [
             [0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]
         ]
+        self.gameBoards[boardId]['next'] = 1
 
     def getBoardById(self, id):
         return self.gameBoards[id]
 
+    def switchToNextPlayer(self, playerNumber):
+        if playerNumber == 1:
+            return 2
+        elif playerNumber == 2:
+            return 1
+        else:
+            raise Exception("Unknown player number {}".format(playerNumber))
+
+    def getNextPlayerNumber(self, gameId):
+        if gameId in self.gameBoards:
+            return self.gameBoards[gameId]['next']
+        else:
+            raise Exception("Unknown game board id ".format(gameId))
+
+    def doResponse(self, responseJson):
+        self.wfile.write(bytes(
+            json.dumps(
+                responseJson,
+                ensure_ascii=False,
+                indent=4
+            ), 'UTF-8'
+        ))
 
     def do_GET(self):
         query = urlparse(self.path).query
@@ -38,16 +62,32 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             gameId = self.generateNewId()
             print("id {}".format(gameId))
-            self.newBoard(gameId, query_components['name'])
+            if 'name' not in query_components:
+                outjson = {'error': 'parameter name not provided'}
+            else:
+                self.newBoard(gameId, query_components['name'])
+                outjson = {"id": gameId}
 
-            print("game boards {}".format(self.gameBoards))
-            self.wfile.write(bytes(
-                json.dumps(
-                    {"id": gameId},
-                    ensure_ascii=False,
-                    indent=4
-                ), 'UTF-8'
-            ))
+            self.doResponse(outjson)
+        elif path == '/status':
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Connection", "close")
+            self.end_headers()
+            if 'game' not in query_components:
+                responseJson = {"error": "parameter game not provided"}
+            else:
+                boardGameId = int(query_components['game'])
+                if boardGameId not in self.gameBoards:
+                    responseJson = {"error": "Unknown game board id {}".format(boardGameId)}
+                else:
+                    copiedGameBoard = copy.deepcopy(self.gameBoards[boardGameId])
+                    copiedGameBoard.pop('name')
+                    responseJson = copiedGameBoard
+
+            self.doResponse(responseJson)
+
+        print("game boards {}".format(self.gameBoards))
 
 port = sys.argv[1]
 
