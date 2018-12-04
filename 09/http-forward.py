@@ -18,7 +18,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json")
         self.send_header("Connection", "close")
         self.end_headers()
-        request = urllib.request.Request(headers=headers, url=upstream, method="GET")
+        request = urllib.request.Request(headers=headers, url='http://' + upstream, method="GET")
         self.wfile.write(bytes(
             json.dumps(
                 self.contactUpstream(request),
