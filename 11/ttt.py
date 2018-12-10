@@ -103,6 +103,13 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         if gameBoard[x][y] != 0:
             raise Exception("Field {} {} is already taken".format(x, y))
 
+    def isInt(self, s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
+
     def do_GET(self):
         query = urlparse(self.path).query
         path = urlparse(self.path).path
@@ -134,18 +141,22 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
                     code = 400
                     responseJson = self.formatBadResponse("parameter game not provided")
                 else:
-                    boardGameId = int(query_components['game'])
-                    if boardGameId not in self.gameBoards:
+                    if not self.isInt(query_components['game']):
                         code = 400
-                        responseJson = self.formatBadResponse("Unknown game board id {}".format(boardGameId))
+                        responseJson = self.formatBadResponse("Unknown game board id(not int) {}".format(query_components['game']))
                     else:
-                        winner = self.getWinner(boardGameId)
-                        if winner is not None:
-                            responseJson = {"winner": winner}
+                        boardGameId = int(query_components['game'])
+                        if boardGameId not in self.gameBoards:
+                            code = 400
+                            responseJson = self.formatBadResponse("Unknown game board id {}".format(boardGameId))
                         else:
-                            copiedGameBoard = copy.deepcopy(self.gameBoards[boardGameId])
-                            copiedGameBoard.pop('name')
-                            responseJson = copiedGameBoard
+                            winner = self.getWinner(boardGameId)
+                            if winner is not None:
+                                responseJson = {"winner": winner}
+                            else:
+                                copiedGameBoard = copy.deepcopy(self.gameBoards[boardGameId])
+                                copiedGameBoard.pop('name')
+                                responseJson = copiedGameBoard
 
             self.sendHeaders(code)
             self.doResponse(responseJson)
@@ -168,32 +179,50 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
                     responseJson = self.formatBadResponse("Parameter y not provided")
                 else:
                     # params provided
-                    boardGameId = int(query_components['game'])
-                    playerNumber = int(query_components['player'])
-                    x = int(query_components['x'])
-                    y = int(query_components['y'])
-                    try:
-                        if boardGameId not in self.gameBoards:
-                            code = 400
-                            raise Exception("Unknown game board id {}".format(boardGameId))
-                        self.validatePlayParameters(
-                            boardGameId,
-                            playerNumber,
-                            x,
-                            y
-                        )
-                        # Params validated
-                        winner = self.getWinner(boardGameId)
-                        if winner is not None:
-                            responseJson = self.formatBadResponse("The game is over, winner {}".format(winner))
-                        else:
-                            self.gameBoards[boardGameId]['board'][x][y] = playerNumber
-                            self.switchToNextPlayer(playerNumber, boardGameId)
-                            responseJson = {"status": "ok"}
-                    except Exception as e:
-                        # print("Exception {}".format(e))
-                        responseJson = self.formatBadResponse(e.args[0])
+                    allParamsAreInt = True
+                    if not self.isInt(query_components['game']):
+                        allParamsAreInt = False
+                        code = 400
+                        responseJson = self.formatBadResponse("Game board id is not int {}".format(query_components['game']))
+                    if not self.isInt(query_components['player']):
+                        allParamsAreInt = False
+                        code = 400
+                        responseJson = self.formatBadResponse("Player id is not int {}".format(query_components['player']))
+                    if not self.isInt(query_components['x']):
+                        allParamsAreInt = False
+                        code = 400
+                        responseJson = self.formatBadResponse("X is not int {}".format(query_components['x']))
+                    if not self.isInt(query_components['y']):
+                        allParamsAreInt = False
+                        code = 400
+                        responseJson = self.formatBadResponse("Y is not int {}".format(query_components['y']))
 
+                    if allParamsAreInt:
+                        boardGameId = int(query_components['game'])
+                        playerNumber = int(query_components['player'])
+                        x = int(query_components['x'])
+                        y = int(query_components['y'])
+                        try:
+                            if boardGameId not in self.gameBoards:
+                                code = 400
+                                raise Exception("Unknown game board id {}".format(boardGameId))
+                            self.validatePlayParameters(
+                                boardGameId,
+                                playerNumber,
+                                x,
+                                y
+                            )
+                            # Params validated
+                            winner = self.getWinner(boardGameId)
+                            if winner is not None:
+                                responseJson = self.formatBadResponse("The game is over, winner {}".format(winner))
+                            else:
+                                self.gameBoards[boardGameId]['board'][x][y] = playerNumber
+                                self.switchToNextPlayer(playerNumber, boardGameId)
+                                responseJson = {"status": "ok"}
+                        except Exception as e:
+                            # print("Exception {}".format(e))
+                            responseJson = self.formatBadResponse(e.args[0])
             self.sendHeaders(code)
             self.doResponse(responseJson)
             return
