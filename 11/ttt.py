@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 import json
 import copy
 
+
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     gameBoards = dict()
 
@@ -92,8 +93,6 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             return 0
 
     def validatePlayParameters(self, gameBoardId, playerNumber, x, y):
-        if gameBoardId not in self.gameBoards:
-            raise Exception("Unknown game board id {}".format(gameBoardId))
         if playerNumber != self.getNextPlayerNumber(gameBoardId):
             raise Exception("It's not your turn: player number {}".format(playerNumber))
         gameBoard = self.gameBoards[gameBoardId]['board']
@@ -158,8 +157,8 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
                 responseJson = self.formatBadResponse("parameters not provided")
             else:
                 query_components = dict(qc.split("=") for qc in query.split("&"))
-                # TODO: should return 400 or 200 in these cases???
                 if 'game' not in query_components:
+                    code = 400
                     responseJson = self.formatBadResponse("Parameter game not provided")
                 elif 'player' not in query_components:
                     responseJson = self.formatBadResponse("Parameter player not provided")
@@ -174,6 +173,9 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
                     x = int(query_components['x'])
                     y = int(query_components['y'])
                     try:
+                        if boardGameId not in self.gameBoards:
+                            code = 400
+                            raise Exception("Unknown game board id {}".format(boardGameId))
                         self.validatePlayParameters(
                             boardGameId,
                             playerNumber,
