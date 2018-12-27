@@ -73,12 +73,24 @@ class HTTPHandler(http.server.BaseHTTPRequestHandler):
 
             self.sendResponse({"code": "invalid json"})
             return
-        timeout = jsonData["timeout"] if "timeout" in jsonData.keys() else 1
-        body = jsonData["content"] if "type" in jsonData.keys() and jsonData["type"] == "POST" else None
+        if "timeout" in jsonData.keys():
+            timeout = jsonData["timeout"]
+        else:
+            timeout = 1
 
-        if body is not None and not isinstance(body, str):
+        if "type" in jsonData.keys() and jsonData["type"] == "POST":
+            body = jsonData["content"]
+        else:
+            body = None
+
+        if not isinstance(body, str) and body is not None:
             body = json.dumps(body)
-        headers = jsonData["headers"] if "headers" in jsonData.keys() else dict()
+
+        if "headers" in jsonData.keys():
+            headers = jsonData["headers"]
+        else:
+            headers = dict()
+
         client = http.client.HTTPConnection(urlBlocks(jsonData["url"])[0], timeout=timeout)
 
         try:
@@ -87,9 +99,10 @@ class HTTPHandler(http.server.BaseHTTPRequestHandler):
             self.sendResponse({"code": "timeout"})
         else:
             resp = dict()
-            resp["code"] = client.getresponse().getcode()
-            resp["headers"] = client.getresponse().getheaders()
-            body = client.getresponse().read()
+            clientResponse = client.getresponse()
+            resp["code"] = clientResponse.getcode()
+            resp["headers"] = clientResponse.getheaders()
+            body = clientResponse.read()
             try:
                 decoded = isParseableJson(body.decode())
             except UnicodeDecodeError:
