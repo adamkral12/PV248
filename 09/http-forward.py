@@ -1,130 +1,107 @@
 import http.client
 import http.server
-import sys
-import urllib.request
 import json
+import sys
 import socket
-from urllib.error import HTTPError, URLError
 
 
-class RequestHandler(http.server.BaseHTTPRequestHandler):
-    def do_GET(self):
-        # print("calling get")
-        headers = dict(self.headers)
-        # TODO: remove these 2 lines when pushing
-        # if 'Host' in headers:
-        #   del headers['Host']
+def urlBlocks(url):
+    if "/" not in url:
+        return url, ""
+    if "//" in url:
+        blocks = url.split("/", 3)
+        return blocks[2], "/" + blocks[3]
+    else:
+        blocks = url.split("/", 1)
+        return blocks[0], "/" + blocks[1]
+
+
+def isParseableJson(maybe_json):
+    try:
+        json.loads(maybe_json)
+    except ValueError:
+        return False
+    return True
+
+
+class HTTPHandler(http.server.BaseHTTPRequestHandler):
+    def sendResponse(self, dic):
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
-        self.send_header("Connection", "close")
         self.end_headers()
-        request = urllib.request.Request(headers=headers, url='http://' + upstream, method="GET")
-        self.wfile.write(bytes(
-            json.dumps(
-                self.contactUpstream(request),
-                ensure_ascii=False,
-                indent=4
-            ), 'UTF-8'
-        ))
+        self.wfile.write(bytes(json.dumps(dic).encode()))
+
+    def do_GET(self):
+        client = http.client.HTTPConnection(urlBlocks(str(sys.argv[2]))[0], timeout=1)
+        try:
+            client.request(
+                "GET",
+                urlBlocks(str(sys.argv[2]))[1],
+                None,
+                self.headers
+            )
+        except socket.timeout:
+            self.sendResponse({"code": "timeout"})
+        else:
+            resp = dict()
+            clientResponse = client.getresponse()
+            resp["headers"] = clientResponse.getheaders()
+            resp["code"] = clientResponse.getcode()
+            body = clientResponse.read()
+            try:
+                decoded = isParseableJson(body.decode())
+            except UnicodeDecodeError:
+                resp["content"] = str(body)
+            else:
+                if decoded:
+                    resp["json"] = json.loads(body.decode())
+                else:
+                    resp["content"] = str(body.decode())
+            self.sendResponse(resp)
 
     def do_POST(self):
-        # print("calling post")
-        outJson = None
-        content_len = int(self.headers.get('content-length', 0))
-        content = self.rfile.read(content_len)
-        # print(content)
-        requestContents = None
+        data = self.rfile.read(int(self.headers.get('content-length', 0)))
+        try:
+            jsonData = json.loads(data)
+        except ValueError:
+            self.sendResponse({"code": "invalid json"})
+            return
+        if "url" not in jsonData.keys() or \
+                ("type" in jsonData.keys() and
+                 jsonData["type"] == "POST" and
+                 "content" not in jsonData.keys()):
+
+            self.sendResponse({"code": "invalid json"})
+            return
+        timeout = jsonData["timeout"] if "timeout" in jsonData.keys() else 1
+        body = jsonData["content"] if "type" in jsonData.keys() and jsonData["type"] == "POST" else None
+
+        if body is not None and not isinstance(body, str):
+            body = json.dumps(body)
+        headers = jsonData["headers"] if "headers" in jsonData.keys() else dict()
+        client = http.client.HTTPConnection(urlBlocks(jsonData["url"])[0], timeout=timeout)
 
         try:
-            requestContents = json.loads(content)
-        except:
-            pass
-
-        if requestContents is None or \
-                (requestContents["type"] == "POST"
-                 and ("url" not in requestContents or "content" not in requestContents)
-                ):
-            outJson = {"code": "invalid json"}
-
-        else:
-            headers = dict(self.headers)
-            if 'headers' in requestContents:
-                headers = dict(requestContents['headers'])
-            # TODO: remove these 2 lines when pushing
-            # if 'Host' in headers:
-            #     del headers['Host']
-
-            # print('headers {}'.format(headers))
-            sentReq = urllib.request.Request(
-                url=requestContents["url"],
-                data=requestContents["content"].encode("utf-8"),
-                headers=headers,
-                method=requestContents["type"] if "type" in requestContents else "GET"
-            )
-
-            timeout = 1
-            if 'timeout' in requestContents:
-                timeout = requestContents['timeout']
-
-            # print('timeout {}'.format(timeout))
-            try:
-                response = urllib.request.urlopen(sentReq, timeout=timeout)
-                outJson = self.parseResponseFromUpstream(
-                    response.status,
-                    dict(response.getheaders()),
-                    response.read()
-                )
-
-            except URLError:
-                # return json timeout
-                outJson = {"code": "timeout"}
-            except socket.timeout:
-                # return json timeout
-                outJson = {"code": "timeout"}
-
-            # print('out json {}'.format(outJson))
-        self.send_response(200)
-        self.send_header('Content-Type', 'application/json')
-        self.send_header('Connection', 'close')
-        self.end_headers()
-        self.wfile.write(bytes(json.dumps(outJson, ensure_ascii=False, indent=4), 'UTF-8'))
-        return
-
-    def contactUpstream(self, request):
-        try:
-            with urllib.request.urlopen(request, timeout=1) as response:
-                return self.parseResponseFromUpstream(
-                    response.status,
-                    dict(response.getheaders()),
-                    response.read()
-                )
-
+            client.request(jsonData["type"], urlBlocks(jsonData["url"])[1], body, headers)
         except socket.timeout:
-            # return json timeout
-            return {"code": "timeout"}
-
-    def parseResponseFromUpstream(
-            self,
-            responseHttpCode,
-            responseHttpHeaders,
-            responseContent
-    ):
-        respEncoded = {"code": responseHttpCode, "headers": responseHttpHeaders}
-        try:
-            respEncoded["json"] = json.loads(responseContent)
-        except:
-            respEncoded["json"] = responseContent
-        return respEncoded
-
-
-port = sys.argv[1]
-upstream = sys.argv[2]
+            self.sendResponse({"code": "timeout"})
+        else:
+            resp = dict()
+            resp["code"] = client.getresponse().getcode()
+            resp["headers"] = client.getresponse().getheaders()
+            body = client.getresponse().read()
+            try:
+                decoded = isParseableJson(body.decode())
+            except UnicodeDecodeError:
+                resp["content"] = str(body)
+            else:
+                if decoded:
+                    resp["json"] = json.loads(body.decode())
+                else:
+                    resp["content"] = str(body.decode())
+            self.sendResponse(resp)
 
 
-def run(port, server_class=http.server.HTTPServer, handler_class=RequestHandler):
-    server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
-
-
-run(int(port))
+port = int(sys.argv[1])
+server = http.server.HTTPServer(("", port), HTTPHandler)
+server.serve_forever()
