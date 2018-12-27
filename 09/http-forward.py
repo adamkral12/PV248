@@ -16,9 +16,9 @@ def urlBlocks(url):
         return blocks[0], "/" + blocks[1]
 
 
-def isParseableJson(maybe_json):
+def isParseableJson(jsonValue):
     try:
-        json.loads(maybe_json)
+        json.loads(jsonValue)
     except ValueError:
         return False
     return True
