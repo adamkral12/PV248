@@ -16,14 +16,6 @@ def urlBlocks(url):
         return blocks[0], "/" + blocks[1]
 
 
-def isParseableJson(jsonValue):
-    try:
-        json.loads(jsonValue)
-    except ValueError:
-        return False
-    return True
-
-
 class HTTPHandler(http.server.BaseHTTPRequestHandler):
     def sendResponse(self, dic):
         self.send_response(200)
@@ -49,7 +41,11 @@ class HTTPHandler(http.server.BaseHTTPRequestHandler):
             resp["code"] = clientResponse.getcode()
             body = clientResponse.read()
             try:
-                decoded = isParseableJson(body.decode())
+                try:
+                    json.loads(body.decode())
+                    decoded = True
+                except ValueError:
+                    decoded = False
             except UnicodeDecodeError:
                 resp["content"] = str(body)
             else:
@@ -104,7 +100,11 @@ class HTTPHandler(http.server.BaseHTTPRequestHandler):
             resp["headers"] = clientResponse.getheaders()
             body = clientResponse.read()
             try:
-                decoded = isParseableJson(body.decode())
+                try:
+                    json.loads(body.decode())
+                    decoded = True
+                except ValueError:
+                    decoded = False
             except UnicodeDecodeError:
                 resp["content"] = str(body)
             else:
